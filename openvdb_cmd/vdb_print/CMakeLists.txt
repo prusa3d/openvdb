@@ -13,6 +13,7 @@ project(VDBPrint LANGUAGES CXX)
 include(GNUInstallDirs)
 
 set(SOURCE_FILES main.cc)
+find_package(Threads REQUIRED)
 add_executable(vdb_print ${SOURCE_FILES})
 target_link_libraries(vdb_print ${OPENVDB_BINARIES_DEPENDENT_LIBS})
 

@@ -50,6 +50,7 @@ if(POLICY CMP0091)
   cmake_policy(SET CMP0091 NEW)
 endif()
 
+
 ###### Version
 
 set(OpenVDB_MAJOR_VERSION 11)
@@ -58,6 +59,8 @@ set(OpenVDB_PATCH_VERSION 0)
 set(OpenVDB_VERSION "${OpenVDB_MAJOR_VERSION}.${OpenVDB_MINOR_VERSION}.${OpenVDB_PATCH_VERSION}")
 
 project(OpenVDB LANGUAGES CXX VERSION ${OpenVDB_VERSION})
+
+find_package(Threads REQUIRED)
 
 ###### OpenVDB Build/Component Options
 

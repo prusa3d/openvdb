@@ -209,7 +209,11 @@ set(Blosc_LIB_COMPONENTS "")
 list(APPEND BLOSC_BUILD_TYPES DEBUG RELEASE)
 
 foreach(BUILD_TYPE ${BLOSC_BUILD_TYPES})
-  set(_BLOSC_LIB_NAME blosc)
+  if(WIN32)
+    set(_BLOSC_LIB_NAME libblosc)
+  else()
+    set(_BLOSC_LIB_NAME blosc)
+  endif()
 
   set(_BLOSC_CMAKE_IGNORE_PATH ${CMAKE_IGNORE_PATH})
   if(VCPKG_TOOLCHAIN)
