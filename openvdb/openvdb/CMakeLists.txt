@@ -672,14 +672,14 @@ if(OPENVDB_CORE_STATIC)
     PROPERTIES OUTPUT_NAME ${OPENVDB_STATIC_LIBRARY_NAME})
 
   if(MSVC)
-    if(NOT CMAKE_MSVC_RUNTIME_LIBRARY)
-      # NOTE: MSVC_RUNTIME_LIBRARY does not propagate to targets, so
-      # also add it explicitly as a compile option
-      set_target_properties(openvdb_static PROPERTIES
-        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-      target_compile_options(openvdb_static PUBLIC
-        "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/MT$<$<CONFIG:Debug>:d>>")
-    endif()
+    # if(NOT CMAKE_MSVC_RUNTIME_LIBRARY)
+    #   # NOTE: MSVC_RUNTIME_LIBRARY does not propagate to targets, so
+    #   # also add it explicitly as a compile option
+    #   set_target_properties(openvdb_static PROPERTIES
+    #     MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    #   target_compile_options(openvdb_static PUBLIC
+    #     "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/MT$<$<CONFIG:Debug>:d>>")
+    # endif()
     set_target_properties(openvdb_static PROPERTIES PREFIX "lib")
   endif()
 endif()
